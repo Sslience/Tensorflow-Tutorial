@@ -115,3 +115,39 @@ All methods mentioned below have their video and text tutorial in Chinese. Visit
          height=120>
   </a>
 </div>
+【【【【【图表软件
+https://cn.tradingview.com/】】】】
+
+双均线指标代码：
+//@version=4
+study(title="均线系统", shorttitle="均", overlay = true )
+sma20 = sma(close,20)
+sma60 = sma(close,60)
+sma120 = sma(close,120)
+
+ema20 = ema(close,20)
+ema60 = ema(close,60)
+ema120 = ema(close,120)
+
+plot(sma20,color=color.black,title="SMA20")
+plot(ema20,color=color.new(color.black,50),title="EMA20")
+
+
+plot(sma60,color=color.blue,title="SMA60")
+plot(ema60,color=color.new(color.blue,50),title="EMA60")
+
+plot(sma120,color=color.purple,title="SMA120")
+plot(ema120,color=color.new(color.purple,50),title="EMA120")
+
+cond=barstate.islast
+bl=low
+moveBar = input(0)
+x20=input(20)+moveBar
+x60=input(60)+moveBar
+x120=input(120)+moveBar
+plot(cond?bl[20]:na,color=
+#FFC40C,linewidth=5,offset=-x20,style=plot.style_circles,transp=0)
+plot(cond?bl[60]:na,color=
+#FFC40C,linewidth=5,offset=-x60,style=plot.style_circles,transp=0)
+plot(cond?bl[120]:na,color=
+#FFC40C,linewidth=5,offset=-x120,style=plot.style_circles,transp=0)
